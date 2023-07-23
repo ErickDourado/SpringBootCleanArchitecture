@@ -31,6 +31,4 @@ public class CustomerController {
         return ResponseEntity.status(CREATED).build();
     }
 
-    //Warning to GitHub
-
 }
