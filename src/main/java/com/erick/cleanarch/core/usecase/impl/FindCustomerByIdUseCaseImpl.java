@@ -6,7 +6,7 @@ import com.erick.cleanarch.core.usecase.FindCustomerByIdUseCase;
 
 public class FindCustomerByIdUseCaseImpl implements FindCustomerByIdUseCase {
 
-    private FindCustomerById findCustomerById;
+    private final FindCustomerById findCustomerById;
 
     public FindCustomerByIdUseCaseImpl(FindCustomerById findCustomerById) {
         this.findCustomerById = findCustomerById;
