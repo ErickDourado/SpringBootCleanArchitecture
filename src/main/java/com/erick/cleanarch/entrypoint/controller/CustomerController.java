@@ -1,6 +1,7 @@
 package com.erick.cleanarch.entrypoint.controller;
 
 import com.erick.cleanarch.core.domain.Customer;
+import com.erick.cleanarch.core.usecase.DeleteCustomerByIdUseCase;
 import com.erick.cleanarch.core.usecase.FindCustomerByIdUseCase;
 import com.erick.cleanarch.core.usecase.InsertCustomerUseCase;
 import com.erick.cleanarch.core.usecase.UpdateCustomerUseCase;
@@ -28,6 +29,9 @@ public class CustomerController {
     private UpdateCustomerUseCase updateCustomerUseCase;
 
     @Autowired
+    private DeleteCustomerByIdUseCase deleteCustomerByIdUseCase;
+
+    @Autowired
     private CustomerMapper customerMapper;
 
     @PostMapping
@@ -49,6 +53,12 @@ public class CustomerController {
         Customer customer = customerMapper.toCustomer(customerRequest);
         customer.setId(id);
         updateCustomerUseCase.update(customer, customerRequest.getZipCode());
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable final String id) {
+        deleteCustomerByIdUseCase.delete(id);
         return ResponseEntity.noContent().build();
     }
 
