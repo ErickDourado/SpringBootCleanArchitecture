@@ -5,7 +5,7 @@ import com.erick.cleanarch.dataprovider.repository.entity.CustomerEntity;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface CustomerMapper {
+public interface CustomerMapperRepository {
 
     CustomerEntity toCustomerEntity(Customer customer);
 

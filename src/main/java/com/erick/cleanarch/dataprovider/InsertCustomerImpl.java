@@ -4,7 +4,7 @@ import com.erick.cleanarch.core.dataprovider.InsertCustomer;
 import com.erick.cleanarch.core.domain.Customer;
 import com.erick.cleanarch.dataprovider.repository.CustomerRepository;
 import com.erick.cleanarch.dataprovider.repository.entity.CustomerEntity;
-import com.erick.cleanarch.dataprovider.repository.mapper.CustomerMapper;
+import com.erick.cleanarch.dataprovider.repository.mapper.CustomerMapperRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ public class InsertCustomerImpl implements InsertCustomer {
     private CustomerRepository customerRepository;
 
     @Autowired
-    private CustomerMapper customerMapper;
+    private CustomerMapperRepository customerMapper;
 
     @Override
     public void insert(Customer customer) {
